@@ -1,0 +1,64 @@
+{
+  "name": "simter-vue-pagebar",
+  "version": "0.1.0",
+  "description": "A vue pagebar component",
+  "main": "dist/simter-vue-pagebar.cjs.js",
+  "module": "dist/simter-vue-pagebar.esm.js",
+  "browser": "dist/simter-vue-pagebar.umd.js",
+  "devDependencies": {
+    "@babel/core": "~7.5.0",
+    "@babel/preset-env": "~7.5.0",
+    "ava": "~2.2.0",
+    "browser-env": "~3.2.6",
+    "parcel-bundler": "~1.12.3",
+    "require-extension-hooks": "~0.3.3",
+    "require-extension-hooks-babel": "~1.0.0",
+    "require-extension-hooks-vue": "^3.0.0",
+    "rollup": "~1.16.7",
+    "rollup-plugin-babel": "~4.3.3",
+    "rollup-plugin-commonjs": "~10.0.1",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "~5.2.0",
+    "rollup-plugin-vue": "~5.0.1",
+    "uglify-es": "~3.3.9",
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-template-compiler": "~2.6.10"
+  },
+  "resolutions": {
+    "prettier": "~1.18.2"
+  },
+  "scripts": {
+    "start": "parcel demo/index.html -d temp",
+    "clean": "rm -rf dist && rm -rf temp",
+    "build": "yarn clean && rollup -c && yarn min-js",
+    "dev": "rollup -c -w",
+    "test": "ava",
+    "min-js": "uglifyjs --comments /^!/ dist/simter-vue-pagebar.umd.js -o dist/simter-vue-pagebar.umd.min.js --source-map=url"
+  },
+  "ava": {
+    "require": [
+      "./test/_setup.js"
+    ]
+  },
+  "files": [
+    "src",
+    "dist",
+    "docs",
+    "rollup.config.js"
+  ],
+  "keywords": [
+    "simter-vue",
+    "simter",
+    "vue",
+    "pagebar",
+    "rollup"
+  ],
+  "repository": "https://github.com/simter-vue/simter-vue-pagebar.git",
+  "author": "RJ.Hwang <rongjihuang@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simter-vue/simter-vue-pagebar/issues"
+  },
+  "homepage": "https://github.com/simter-vue/simter-vue-pagebar"
+}
